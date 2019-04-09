@@ -1,0 +1,32 @@
+// colors
+$color-black: #252525;
+$color-grey: #555;
+$color-white: #fff;
+$color-blue-dark: #17304b;
+$color-blue: #128dbb;
+$color-blue-light: #1ea9dd;
+$color-yellow: #f8e71c;
+
+// break points
+$sp-max-width: 500px;
+$tb-max-width: 768px;
+$pc-min-width: 998px;
+
+// container max width
+$container: 1140px;
+
+@mixin mq-sp($max: $sp-max-width) {
+  @media only screen and (max-width: #{$max}) {
+    @content;
+  }
+}
+@mixin mq-tb($max: $tb-max-width) {
+  @media only screen and (max-width: #{$max}) {
+    @content;
+  }
+}
+@mixin mq-pc($min: $pc-min-width) {
+  @media only screen and (min-width: #{$min}) {
+    @content;
+  }
+}

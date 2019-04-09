@@ -1,0 +1,10 @@
+.header {
+  height: 8.4rem;
+  background: grey;
+  &__inner {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: $container;
+  }
+}
