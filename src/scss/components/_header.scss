@@ -1,10 +1,17 @@
 .header {
-  height: 8.4rem;
+  height: 84px;
   background: grey;
+
   &__inner {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     max-width: $container;
+  }
+
+  &__menu {
+    ul {
+      display: flex;
+    }
   }
 }
