@@ -2,7 +2,8 @@
 
 session_start();
 
-include './database.php';
+include './DB.php';
+$pdo = connect();
 
 $post_email = $_POST['email'];
 

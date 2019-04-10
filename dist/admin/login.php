@@ -5,7 +5,7 @@ if ($_SESSION['login']) {
     header('location: message.php');
 }
 
-require './database.php';
+require './DB.php';
 
 $title = 'Rejuvin8';
 
