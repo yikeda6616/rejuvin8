@@ -6,12 +6,10 @@ include './function.php';
 include './DB.php';
 
 $pdo = DB::connect();
-
-$post_email = $_POST['email'];
-
 $sql = 'SELECT * FROM user WHERE email = :email';
 $stmt = $pdo->prepare($sql); // Use prepared statement to prevent SQL injection
-$stmt->execute([':email' => $post_email]);
+$stmt->bindValue(':email', h($_POST['email']));
+$stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
@@ -19,9 +17,9 @@ if (!$user) {
     // header('location: login.php?error=true');
 }
 
-if (password_verify($_POST['password'], $user['hash'])) {
+if (password_verify(h($_POST['password']), $user['hash'])) {
     $_SESSION['login'] = true;
     header('location: ./message.php?success=true');
 } else {
-    header('location: ./login.php?error=true');
+    header('location: ./index.php?error=true');
 }
