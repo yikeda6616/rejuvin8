@@ -3,7 +3,7 @@
 session_start();
 
 include './DB.php';
-$pdo = connect();
+$pdo = DB::connect();
 
 $post_email = $_POST['email'];
 
