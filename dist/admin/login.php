@@ -18,7 +18,7 @@ if (!$user) {
 }
 
 if (password_verify(h($_POST['password']), $user['hash'])) {
-    $_SESSION['login'] = true;
+    $_SESSION['user_id'] = $user['id'];
     header('location: ./message.php?success=true');
 } else {
     header('location: ./index.php?error=true');

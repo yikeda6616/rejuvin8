@@ -1,15 +1,50 @@
 <?php
 
+include './User.php';
+
+(isset($_SESSION['user_id'])) ? User::check() : header('location: ./index.php?error=true');
+
+// $pdo = DB::connect();
+// $sql = 'SELECT * FROM subscribe';
+// $stmt = $pdo->prepare($sql); // Use prepared statement to prevent SQL injection
+// $stmt->execute();
+// $subscribe = $stmt->fetch(PDO::FETCH_ASSOC);
+
+include './partials/_header.php';
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+
   <a href="logout.php">logout</a>
-</body>
-</html>
+
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h2>Pages</h2>
+      <a href="pageForm.php"><i class="fas fa-plus-circle"></i> Add Page</a>
+    </div>
+
+    <h3>Manage Your Pages</h3>
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php while ($row = mysqli_fetch_assoc($page)): ?>
+          <tr>
+            <td><a href="../index.php?id=<?= $row['id']; ?>" target="_brank"><?= $row['name']; ?></a></td>
+            <td class="text-center"><a href="pageForm.php?page_id=<?= $row['id']; ?>"><i class="fas fa-pencil-alt"?></i></a></td>
+            <td class="text-center"><a href="actions/deletePage.php?page_id=<?= $row['id']; ?>"><i class="fas fa-trash-alt"?></i></a></td>
+          </tr>
+          <?php endwhile; ?>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+<?php
+
+include './partials/_footer.php';

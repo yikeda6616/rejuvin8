@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['login']) {
+if (isset($_SESSION['user_id'])) {
     header('location: message.php');
 }
 
