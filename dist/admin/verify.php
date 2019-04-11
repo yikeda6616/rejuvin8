@@ -2,13 +2,15 @@
 
 session_start();
 
+include './function.php';
 include './DB.php';
+
 $pdo = DB::connect();
 
 $post_email = $_POST['email'];
 
 $sql = 'SELECT * FROM user WHERE email = :email';
-$stmt = $pdo->prepare($sql);
+$stmt = $pdo->prepare($sql); // Use prepared statement to prevent SQL injection
 $stmt->execute([':email' => $post_email]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
