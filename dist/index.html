@@ -11,9 +11,9 @@
   <body>
     <div class="wrapper">
       <form action="admin/insert.php" method="post">
-        <input type="text" name="name">
-        <input type="email" name="email">
-        <input type="submit" value="Submit">
+        <input class="form-control" type="name" name="name" id="inputName" placeholder="Your Name" pattern="[a-zA-Zs]{4,}" required autofocus>
+        <input class="form-control" type="email" name="email" id="inputEmail" placeholder="Email Address" pattern="[a-zA-Z0-9.-_]{3,}@{1}[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}.{0,}" required>
+        <button type="submit" value="Submit">Submit</button>
       </form>
       <div class="header">
         <div class="header__inner">

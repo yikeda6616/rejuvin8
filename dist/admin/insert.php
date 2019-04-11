@@ -4,7 +4,6 @@ include './function.php';
 include './DB.php';
 
 // Validate
-
 if ($_POST['name'] !== '') {
     $name = h($_POST['name']);
     $regex = "/[a-zA-z\s]{3,}/";
