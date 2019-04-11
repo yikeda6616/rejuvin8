@@ -6,14 +6,14 @@ include './function.php';
 include './DB.php';
 
 $pdo = DB::connect();
-$sql = 'SELECT * FROM user WHERE email = :email';
+$sql = 'SELECT * FROM user WHERE email = ?';
 $stmt = $pdo->prepare($sql); // Use prepared statement to prevent SQL injection
-$stmt->bindValue(':email', h($_POST['email']));
+$stmt->bindValue(1, h($_POST['email']));
 $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    echo'erorr';
+    echo'error';
     // header('location: login.php?error=true');
 }
 

@@ -15,7 +15,7 @@ require './partials/_header.php';
 
   <div class="container signin-container">
     
-    <form class="form-signin" action="verify.php" method=post>
+    <form class="form-signin" action="login.php" method=post>
       <div class="text-center mb-4">
         <img class="loginForm__logo mb-4" src="./img/logo.png" alt="brand logo">
         <h1 class="h3 mb-3 font-weight-normal">Please Sign in</h1>
