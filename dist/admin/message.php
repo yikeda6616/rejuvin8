@@ -9,18 +9,16 @@ if (isset($_SESSION['user_id'])) {
 
 $pdo = DB::connect();
 
-// If sort is set, do sorting
-if (isset($_GET['sortby'])) {
-    $sort = filter_input(INPUT_GET, 'sortby'); // filter GET variable to prevent crawling
-    $sql = 'SELECT * FROM subscribe ORDER BY ? ASC';
-    $stmt = $pdo->prepare($sql); // Use prepared statement to prevent SQL injection
-    $stmt->bindValue(1, $sort);
-} else { // if sort is not set, show as default
-    $sql = 'SELECT * FROM subscribe';
-    $stmt = $pdo->prepare($sql);
-}
+$order = filter_input(INPUT_GET, 'order');
 
-$stmt->execute();
+$order = ($order == 'asc') ? 'desc' : 'asc';
+
+if ($sort = filter_input(INPUT_GET, 'sortby')) { // filter GET variable to prevent crawling
+    $stmt = $pdo->prepare("SELECT * FROM subscribe ORDER BY {$sort} {$order}"); // Use prepared statement to prevent SQL injection
+    $stmt->execute();
+} else { // if sort is not set, show as default
+    $stmt = $pdo->query('SELECT * FROM subscribe');
+}
 
 include './partials/_header.php';
 
@@ -39,19 +37,21 @@ include './partials/_header.php';
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>Name</th>
-              <th class="text-center">Email</th>
+              <th><a href="message.php?sortby=id&order=<?= $order; ?>">ID</a></th>
+              <th><a href="message.php?sortby=name&order=<?= $order; ?>">Name</a></th>
+              <th class="text-center"><a href="message.php?sortby=email&order=<?= $order; ?>">Email</a></th>
               <th class="text-center">Delete</th>
             </tr>
           </thead>
           <tbody>
-            <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+            <?php foreach ($stmt as $row): ?>
             <tr>
+              <td><?= $row['id']; ?></td>
               <td><?= $row['name']; ?></td>
               <td class="text-center"><a href="pageForm.php?page_id=<?= $row['id']; ?>"><?= $row['email']; ?><i class="fas fa-envelope"?></i></a></td>
               <td class="text-center"><a href="actions/deletePage.php?page_id=<?= $row['id']; ?>"><i class="fas fa-trash-alt"?></i></a></td>
             </tr>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
