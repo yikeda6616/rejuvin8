@@ -39,7 +39,8 @@ include './partials/_header.php';
             <tr>
               <th><a href="message.php?sortby=id&order=<?= $order; ?>">ID</a></th>
               <th><a href="message.php?sortby=name&order=<?= $order; ?>">Name</a></th>
-              <th class="text-center"><a href="message.php?sortby=email&order=<?= $order; ?>">Email</a></th>
+              <th class="text-center"><a href="message.php?sortby=email&order=<?= $order; ?>">Email<i class="fas fa-envelope"?></i></a></th>
+              <th><a href="message.php?sortby=time&order=<?= $order; ?>">Time</a></th>
               <th class="text-center">Delete</th>
             </tr>
           </thead>
@@ -48,7 +49,8 @@ include './partials/_header.php';
             <tr>
               <td><?= $row['id']; ?></td>
               <td><?= $row['name']; ?></td>
-              <td class="text-center"><a href="pageForm.php?page_id=<?= $row['id']; ?>"><?= $row['email']; ?><i class="fas fa-envelope"?></i></a></td>
+              <td class="text-center"><a href="pageForm.php?page_id=<?= $row['id']; ?>"><?= $row['email']; ?></a></td>
+              <td><?= $row['time']; ?></td>
               <td class="text-center"><a href="actions/deletePage.php?page_id=<?= $row['id']; ?>"><i class="fas fa-trash-alt"?></i></a></td>
             </tr>
             <?php endforeach; ?>
