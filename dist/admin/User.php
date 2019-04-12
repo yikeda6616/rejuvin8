@@ -13,11 +13,7 @@ class User
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (!isset($user['id'])) {
-            header('location: index.php?error=true');
-        }
-
-        if ($_SESSION['user_id'] !== $user['id']) {
+        if (!isset($user['id']) || $_SESSION['user_id'] !== $user['id']) {
             header('location: index.php?error=true');
         }
     }

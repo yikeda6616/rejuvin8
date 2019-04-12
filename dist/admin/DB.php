@@ -5,7 +5,7 @@ class DB
     public static function connect()
     {
         try {
-            $db = parse_ini_file('../../../config.ini');
+            $db = parse_ini_file("{$_SERVER['DOCUMENT_ROOT']}/config.ini");
             $dbh = "mysql:dbname={$db['name']};host={$db['host']};charset=utf8mb4";
             $pdo = new PDO(
                 $dbh,
