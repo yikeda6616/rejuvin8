@@ -9,8 +9,9 @@ if (isset($_SESSION['user_id'])) {
 
 $pdo = DB::connect();
 
+$order = filter_input(INPUT_GET, 'order');
+
 if ($sort = filter_input(INPUT_GET, 'sortby')) { // filter GET variable to prevent crawling
-    $order = filter_input(INPUT_GET, 'order');
     $order = ($order == 'asc') ? 'desc' : 'asc';
     $stmt = $pdo->prepare("SELECT * FROM subscribe ORDER BY {$sort} {$order}"); // Use prepared statement to prevent SQL injection
     $stmt->execute();
@@ -35,10 +36,10 @@ include './partials/_header.php';
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th><a href="message.php?sortby=id&order=<?= $order; ?>">ID</a></th>
-              <th><a href="message.php?sortby=name&order=<?= $order; ?>">Name</a></th>
-              <th class="text-center"><a href="message.php?sortby=email&order=<?= $order; ?>">Email<i class="fas fa-envelope"?></i></a></th>
-              <th class="text-center"><a href="message.php?sortby=time&order=<?= $order; ?>">Time</a></th>
+              <th><a href="message.php?sortby=id&order=<?= $order; ?>">ID<i class="fas fa-sort"></i></a></th>
+              <th><a href="message.php?sortby=name&order=<?= $order; ?>">Name<i class="fas fa-sort"></i></a></th>
+              <th class="text-center"><a href="message.php?sortby=email&order=<?= $order; ?>">Email<i class="fas fa-envelope"?></i><i class="fas fa-sort"></i></a></th>
+              <th class="text-center"><a href="message.php?sortby=time&order=<?= $order; ?>">Time<i class="fas fa-sort"></i></a></th>
               <th class="text-center">Delete</th>
             </tr>
           </thead>
