@@ -16,5 +16,9 @@ class User
         if (!isset($user['id'])) {
             header('location: index.php?error=true');
         }
+
+        if ($_SESSION['user_id'] !== $user['id']) {
+            header('location: index.php?error=true');
+        }
     }
 }

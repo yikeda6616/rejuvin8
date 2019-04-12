@@ -3,13 +3,14 @@ session_start();
 
 include './User.php';
 
+var_dump($_SESSION);
+
 if (isset($_SESSION['user_id'])) {
     User::check();
 }
 
 $pdo = DB::connect();
-$sql = 'SELECT * FROM subscribe';
-$stmt = $pdo->query($sql);
+$stmt = $pdo->query('SELECT * FROM subscribe');
 
 include './partials/_header.php';
 
