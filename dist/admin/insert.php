@@ -3,16 +3,15 @@
 include './function.php';
 include './Subscribe.php';
 
-// Validate
+// Sanitize user input
+$name = Subscribe::sanitizeName($_POST['name']);
+$email = Subscribe::sanitizeEmail($_POST['email']);
 
-$subscribe = new Subscribe();
+// Validate user input
+$valid_name = Subscribe::validateName($name);
+$valid_email = Subscribe::validateEmail($email);
 
-$name = $subscribe->sanitizeName();
-$email = $subscribe->sanitizeEmail();
-
-$valid_name = $subscribe->validateName($_POST['name']);
-$valid_email = $subscribe->validateEmail($_POST['email']);
-
-if ($valid_name && $valid_email) {
-    $subscribe->add($name, $email);
-}
+// Add to DB
+($valid_name && $valid_email) ?
+    Subscribe::add($name, $email) :
+    header('location: ./index.php?error=true'); // TODO: Check header location before deploy
