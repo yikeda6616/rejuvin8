@@ -19,6 +19,11 @@ if ($sort = filter_input(INPUT_GET, 'sortby', FILTER_SANITIZE_MAGIC_QUOTES)) {
     $stmt = $pdo->query('SELECT * FROM subscribe');
 }
 
+// flash message
+if (filter_input(INPUT_GET, 'success')) {
+    echo '<p class="flash text-white bg-success">Login Success.</p>';
+}
+
 include './partials/_header.php';
 
 ?>
@@ -26,7 +31,7 @@ include './partials/_header.php';
   <div class="container">
     <main role="main" class="col-md-9 mx-auto col-lg-10">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2>Subscribes</h2>
+        <h2>e-Book Subscribes</h2>
 
   <a href="logout.php">logout</a>
       </div>
