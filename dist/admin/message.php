@@ -21,7 +21,7 @@ if ($sort = filter_input(INPUT_GET, 'sortby', FILTER_SANITIZE_MAGIC_QUOTES)) {
 
 // flash message
 if (filter_input(INPUT_GET, 'success')) {
-    echo '<p class="flash text-white bg-success">Login Success.</p>';
+    echo '<p class="flash text-white bg-success">Success.</p>';
 }
 
 include './partials/_header.php';
@@ -55,7 +55,7 @@ include './partials/_header.php';
               <td><?= $row['name']; ?></td>
               <td class="text-center"><a href="pageForm.php?page_id=<?= $row['id']; ?>"><?= $row['email']; ?></a></td>
               <td class="text-center"><?= $row['time']; ?></td>
-              <td class="text-center"><a href="actions/deletePage.php?page_id=<?= $row['id']; ?>"><i class="fas fa-trash-alt"?></i></a></td>
+              <td class="text-center"><a href="delete.php?id=<?= $row['id']; ?>"><i class="fas fa-trash-alt"?></i></a></td>
             </tr>
             <?php endforeach; ?>
           </tbody>
