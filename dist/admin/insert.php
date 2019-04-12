@@ -7,8 +7,12 @@ include './Subscribe.php';
 
 $subscribe = new Subscribe();
 
-$name = $subscribe->validateName($_POST['name']);
+$name = $subscribe->sanitizeName();
+$email = $subscribe->sanitizeEmail();
 
-$email = $subscribe->validateEmail($_POST['email']);
+$valid_name = $subscribe->validateName($_POST['name']);
+$valid_email = $subscribe->validateEmail($_POST['email']);
 
-$subscribe->add($name, $email);
+if ($valid_name && $valid_email) {
+    $subscribe->add($name, $email);
+}
