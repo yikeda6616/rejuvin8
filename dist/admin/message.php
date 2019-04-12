@@ -8,7 +8,19 @@ if (isset($_SESSION['user_id'])) {
 }
 
 $pdo = DB::connect();
-$stmt = $pdo->query('SELECT * FROM subscribe');
+
+// If sort is set, do sorting
+if (isset($_GET['sortby'])) {
+    $sort = filter_input(INPUT_GET, 'sortby'); // filter GET variable to prevent crawling
+    $sql = 'SELECT * FROM subscribe ORDER BY ? ASC';
+    $stmt = $pdo->prepare($sql); // Use prepared statement to prevent SQL injection
+    $stmt->bindValue(1, $sort);
+} else { // if sort is not set, show as default
+    $sql = 'SELECT * FROM subscribe';
+    $stmt = $pdo->prepare($sql);
+}
+
+$stmt->execute();
 
 include './partials/_header.php';
 
