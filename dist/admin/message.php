@@ -9,9 +9,9 @@ if (isset($_SESSION['user_id'])) {
 
 $pdo = DB::connect();
 
-$order = filter_input(INPUT_GET, 'order');
+$order = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_MAGIC_QUOTES);
 
-if ($sort = filter_input(INPUT_GET, 'sortby')) { // filter GET variable to prevent crawling
+if ($sort = filter_input(INPUT_GET, 'sortby', FILTER_SANITIZE_MAGIC_QUOTES)) {
     $order = ($order == 'asc') ? 'desc' : 'asc';
     $stmt = $pdo->prepare("SELECT * FROM subscribe ORDER BY {$sort} {$order}");
     $stmt->execute();
