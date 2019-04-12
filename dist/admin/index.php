@@ -7,6 +7,12 @@ $title = 'Rejuvin8';
 
 require './partials/_header.php';
 
+if (isset($_GET['error'])) {
+    if ($_GET['error'] == true) {
+        echo '<p class="flash text-white bg-danger">Login Failed. Try Again.</p>';
+    }
+}
+
 ?>
 
   <div class="container signin-container">

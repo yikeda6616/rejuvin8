@@ -13,8 +13,7 @@ $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    echo'error';
-    // header('location: login.php?error=true');
+    header('location: login.php?error=true');
 }
 
 if (password_verify(h($_POST['password']), $user['hash'])) {
