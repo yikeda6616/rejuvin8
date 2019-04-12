@@ -13,7 +13,7 @@ $order = filter_input(INPUT_GET, 'order');
 
 if ($sort = filter_input(INPUT_GET, 'sortby')) { // filter GET variable to prevent crawling
     $order = ($order == 'asc') ? 'desc' : 'asc';
-    $stmt = $pdo->prepare("SELECT * FROM subscribe ORDER BY {$sort} {$order}"); // Use prepared statement to prevent SQL injection
+    $stmt = $pdo->prepare("SELECT * FROM subscribe ORDER BY {$sort} {$order}");
     $stmt->execute();
 } else { // if sort is not set, show as default
     $stmt = $pdo->query('SELECT * FROM subscribe');
