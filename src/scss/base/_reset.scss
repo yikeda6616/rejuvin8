@@ -36,3 +36,8 @@ h6 {
   font-family: 'Libre Baskerville', serif;
   margin: 0;
 }
+
+.no-gutter [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
