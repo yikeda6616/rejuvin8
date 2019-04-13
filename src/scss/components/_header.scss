@@ -26,11 +26,10 @@
     display: inline-block;
     background: url('../img/logo-white.png') center/contain no-repeat;
   }
-
-  .fixed {
-    background: #2b2e4a;
-    padding: 20px 0;
-  }
+}
+.fixed {
+  background: #2b2e4a;
+  padding: 20px 0;
 }
 
 .menu-pc {
@@ -142,7 +141,7 @@
     width: 45px;
     height: 45px;
     content: '';
-    background: #e84545;
+    background: $color-grey;
   }
 }
 
