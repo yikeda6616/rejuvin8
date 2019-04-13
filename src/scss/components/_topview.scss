@@ -6,7 +6,7 @@
 
   &--overlay {
     height: 750px;
-    background: rgba(43, 46, 74, 0.95);
+    background: rgba($color-black, 0.8);
   }
 
   &__content {
@@ -22,9 +22,8 @@
     color: $color-white;
 
     h2 {
-      font-family: 'Open Sans', sans-serif;
       font-size: 65px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 72px;
       text-transform: uppercase;
       margin: 20px auto 10px;

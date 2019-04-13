@@ -1,0 +1,27 @@
+mixin feature(title, text)
+  .feature
+    i.feature__icon.fas.fa-tools
+    .feature__content
+      h4= title
+      p= text
+
+- var text1 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, asperiores porro quibusdam sit ab, nostrum perspiciatis laudantium non nemo at voluptatem cumque deleniti fuga dolores. Est quam at repellendus blanditiis.'
+
+
+
+section.features.section#features
+  .container
+    .row.no-gutter
+      .col-lg-4.col-md-6.col-sm-12.text-center
+        +feature('Eheading', text1)
+      .col-lg-4.col-md-6.col-sm-12.text-center
+        +feature('Eheading', 'text-text')
+      .col-lg-4.col-md-6.col-sm-12.text-center
+        +feature('Eheading', 'text-text')
+      .col-lg-4.col-md-6.col-sm-12.text-center
+        +feature('Eheading', 'text-text')
+      .col-lg-4.col-md-6.col-sm-12.text-center
+        +feature('Eheading', 'text-text')
+      .col-lg-4.col-md-6.col-sm-12.text-center
+        +feature('Eheading', 'text-text')
+

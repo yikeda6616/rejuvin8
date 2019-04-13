@@ -28,7 +28,7 @@
   }
 }
 .fixed {
-  background: #2b2e4a;
+  background: $color-blue-dark;
   padding: 20px 0;
 }
 
@@ -51,7 +51,7 @@
         padding: 0 20px;
         line-height: 30px;
         transition: color 0.2s;
-        color: rgba($color-black, 0.75);
+        color: rgba(#aaa, 0.75);
         &:hover {
           color: #fff;
         }
