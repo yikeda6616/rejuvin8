@@ -1,17 +1,178 @@
 .header {
-  height: 84px;
-  background: grey;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  transition: padding 0.2s;
+  padding: 40px 0;
+  background: transparent;
 
-  &__inner {
+  &__content {
+    max-width: $container;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    max-width: $container;
+    position: relative;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba($color-black, 0.15);
   }
 
-  &__menu {
-    ul {
-      display: flex;
+  &__logo {
+    line-height: 1;
+    margin-left: 15px;
+    width: 190px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    background: url('../img/logo-white.png') center/contain no-repeat;
+  }
+
+  .fixed {
+    background: #2b2e4a;
+    padding: 20px 0;
+  }
+}
+
+.menu-pc {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: rgba($color-black, 0.75);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  ul {
+    display: flex;
+    @include mq-tb {
+      display: none;
+    }
+    li {
+      a {
+        display: inline-block;
+        padding: 0 20px;
+        line-height: 30px;
+        transition: color 0.2s;
+        color: rgba($color-black, 0.75);
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  color: #fff;
+}
+
+/* 
+ * SP Menu Drawer style 
+ **/
+#sp-nav {
+  position: absolute;
+  top: 0.5rem;
+  right: 3rem;
+  display: none;
+
+  @include mq-tb {
+    display: block;
+  }
+}
+
+#nav-toggle {
+  display: block;
+  position: relative;
+  z-index: 1;
+  input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    &:checked ~ span {
+      opacity: 1;
+      background: $color-white;
+      transform: rotate(45deg) translate(7px, 7px);
+
+      &:nth-last-child(2) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      &:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2 0.2);
+      }
+    }
+    &:checked ~ ul {
+      visibility: visible;
+      background-color: rgba($color-black, 0.9);
+    }
+  }
+
+  span {
+    display: block;
+    width: 25px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: $color-white;
+    border-radius: 3px;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.8, 0.2, 0.05, 1), opacity 0.55s ease;
+    &:first-child {
+      transform-origin: 0% 0%;
+    }
+
+    &::nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px;
+    content: '';
+    background: #e84545;
+  }
+}
+
+/* drawer content box */
+#nav-content {
+  text-align: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  margin: -73px 0 0 73px;
+  font-size: 25px;
+  background-color: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  -webkit-transition: background-color 0.3s, visibility 0.2s;
+  transition: background-color 0.3s, visibility 0.2s;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  padding: 30vh 0;
+
+  li a {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 200px;
+    padding: 5px 10px;
+    display: inline-block;
+    color: #c6cacc;
+    transition: color 0.2s;
+    &:hover {
+      color: $color-white;
     }
   }
 }
