@@ -34,8 +34,7 @@ if (filter_input(INPUT_GET, 'success')) {
     <main role="main" class="col-md-9 mx-auto col-lg-10">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>e-Book Subscribes</h2>
-
-  <a href="logout.php">logout</a>
+        <a href="logout.php">logout</a>
       </div>
 
       <h3>Manage Subscribes</h3>

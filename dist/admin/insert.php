@@ -14,4 +14,4 @@ $valid_email = Subscribe::validateEmail($email);
 // Add to DB
 ($valid_name && $valid_email) ?
     Subscribe::add($name, $email) :
-    header('location: ./index.php?error=true'); // TODO: Check header location before deploy
+    header('location: ../index.php?error=true');

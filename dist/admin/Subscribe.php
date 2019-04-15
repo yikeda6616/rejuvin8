@@ -51,8 +51,8 @@ class Subscribe
         $stmt->bindValue(1, $name);
         $stmt->bindValue(2, $email);
         ($stmt->execute()) ?
-            header('location: ../index.html?success=true') :
-            header('location: ../index.html?error=true');
+            header('location: ../index.php?success=true') :
+            header('location: ../index.php?error=true');
     }
 
     public static function delete($id)
