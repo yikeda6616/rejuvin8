@@ -3,9 +3,7 @@ session_start();
 
 include './User.php';
 
-if (isset($_SESSION['user_id'])) {
-    User::check();
-}
+User::check();
 
 $pdo = DB::connect();
 
@@ -19,12 +17,14 @@ if ($sort = filter_input(INPUT_GET, 'sortby', FILTER_SANITIZE_MAGIC_QUOTES)) {
     $stmt = $pdo->query('SELECT * FROM subscribe');
 }
 
+$title = 'Rejuvin8 | Subscribe List';
+
+include './partials/_header.php';
+
 // flash message
 if (filter_input(INPUT_GET, 'success')) {
     echo '<p class="flash text-white bg-success">Success.</p>';
 }
-
-include './partials/_header.php';
 
 ?>
 

@@ -3,7 +3,7 @@ session_start();
 
 require './DB.php';
 
-$title = 'Rejuvin8';
+$title = 'Rejuvin8 | Login';
 
 require './partials/_header.php';
 
