@@ -6,10 +6,10 @@
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    background: $color-blue;
+    background: $color-orange;
     transition: all 0.2s;
     &:hover {
-      background: $color-blue-dark;
+      background: darken($color-orange, 5%);
       color: #fff;
     }
   }
