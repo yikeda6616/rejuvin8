@@ -1,5 +1,5 @@
 .testimonials {
-  background: #53354a;
+  background: $color-blue-dark;
   position: relative;
 }
 
@@ -7,9 +7,15 @@
   &__image {
     img {
       width: 100%;
+      @include mq-tb {
+        width: 70%;
+      }
     }
   }
   &__content {
+    @include mq-tb {
+      text-align: center;
+    }
     blockquote {
       padding: 100px 15% 0;
       color: $color-white;

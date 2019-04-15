@@ -6,15 +6,19 @@ mixin person(name, role, bio, src, alt)
       h5.role= role
       p= bio
 
+- var text1 = 'Dr. Wood attention to detail is designed to provide superlative care and results. She listens attentively to each patient’s needs and aligns their desires with realistic expectations.';
+- var text2 = 'Dr. Reed is skilled in all facets of aesthetic surgery, with a particular emphasis on facial rejuvenation, breast aesthetics, body contouring, and liposuction.'
+- var text3 = 'Dr. Veldez is a Member of the American Society of Plastic Surgeons (ASPS), and is a board certified Diplomate of the American Board of Plastic Surgery.'
+- var text4 = 'Dr. Ree’s philosophy is that plastic surgery is as much art as it is medicine, and the seamless blending of the two to achieve a beautiful and natural result is the ultimate goal for her patients. '
 
 .section.teams#teams
   .container
     .row
       .col-lg-3.col-md-6.col-sm-12
-        +person('Sheila Ree','Manager, Surgeon', 'lorem ipsum','https://pixelbuddha.net/livepreview/activebox/images/team-1.jpg', 'team-1')
+        +person('Dr. Sheila Ree','Surgeon', text4,'https://pixelbuddha.net/livepreview/activebox/images/team-4.jpg', 'team-4')
       .col-lg-3.col-md-6.col-sm-12
-        +person('Sheila Ree','Manager, Surgeon', 'lorem ipsum','https://pixelbuddha.net/livepreview/activebox/images/team-1.jpg', 'team-1')
+        +person('Dr. Ruth Wood','Manager', text1,'https://pixelbuddha.net/livepreview/activebox/images/team-1.jpg', 'team-1')
       .col-lg-3.col-md-6.col-sm-12
-        +person('Sheila Ree','Manager, Surgeon', 'lorem ipsum','https://pixelbuddha.net/livepreview/activebox/images/team-1.jpg', 'team-1')
+        +person('Dr. Timothy Reed','Surgeon', text2,'https://pixelbuddha.net/livepreview/activebox/images/team-2.jpg', 'team-2')
       .col-lg-3.col-md-6.col-sm-12
-        +person('Sheila Ree','Manager, Surgeon', 'lorem ipsum','https://pixelbuddha.net/livepreview/activebox/images/team-1.jpg', 'team-1')
+        +person('Dr. Victoria Veldze','Surgeon', text3,'https://pixelbuddha.net/livepreview/activebox/images/team-3.jpg', 'team-3')
