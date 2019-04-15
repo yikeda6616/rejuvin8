@@ -1,0 +1,20 @@
+mixin imagePanel(title, caption, src)
+  .imagePanel
+    a.imagePanel__box(href="#services")
+      img(src=src)
+      .imagePanel__box__overlay
+        .imagePanel__caption
+          h5= title
+          p= caption
+
+section.operations.section.no-padding#services
+  .container-fluid
+    .row.no-gutter
+      .col-xl-3.col-lg-6.col-md-6.col-sm-12.imagePanel--outer
+        +imagePanel('Face', 'Face Lift / Neck Lift', '../img/service1.jpg')
+      .col-xl-3.col-lg-6.col-md-6.col-ssm-12.imagePanel--outer
+        +imagePanel('Breast', 'Faceface', '../img/service2.jpg')
+      .col-xl-3.col-lg-6.col-md-6.col-sm-12.imagePanel--outer
+        +imagePanel('Abdomen', 'Tummy Tuck', '../img/service3.jpg')
+      .col-xl-3.col-lg-6.col-md-6.col-sm-12.imagePanel--outer
+        +imagePanel('Lip', 'Faceface', '../img/service4.jpg')

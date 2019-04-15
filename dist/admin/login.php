@@ -15,10 +15,11 @@ $stmt->bindValue(1, $email);
 $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$user) {
+if (!$user) { // if the user related to the email doesn't exist
     header('location: login.php?error=true');
 }
 
+// verify user input password and hash stored in db
 if (password_verify($password, $user['hash'])) {
     $_SESSION['user_id'] = $user['id'];
     header('location: ./message.php?success=true');
