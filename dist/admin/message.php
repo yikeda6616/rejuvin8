@@ -7,7 +7,9 @@ User::check();
 
 $pdo = DB::connect();
 
-$order = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_MAGIC_QUOTES);
+$order = (filter_input(INPUT_GET, 'order', FILTER_SANITIZE_MAGIC_QUOTES)) ?
+$_GET['order'] :
+'asc';
 
 if ($sort = filter_input(INPUT_GET, 'sortby', FILTER_SANITIZE_MAGIC_QUOTES)) {
     $order = ($order == 'asc') ? 'desc' : 'asc';
