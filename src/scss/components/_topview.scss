@@ -1,12 +1,18 @@
 .topview {
-  background: url(../img/hero.jpg) no-repeat;
-  background-position: left top;
+  background: url(../img/hero.png) no-repeat;
+  background-position: right top;
   background-size: cover;
   height: 750px;
+  @include mq-tb {
+    height: 600px;
+  }
 
   &--overlay {
     height: 750px;
     background: rgba($color-black, 0.6);
+    @include mq-tb {
+      height: 600px;
+    }
   }
 
   &__content {

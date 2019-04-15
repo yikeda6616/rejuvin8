@@ -32,11 +32,25 @@
   &__box {
     img {
       transition: all 0.3s;
-      width: 100%;
-      height: 100%;
+      height: 250px;
     }
 
-    &:hover {
+    @include mq-pc {
+      &:hover {
+        color: $color-white;
+        .imagePanel__box__overlay {
+          opacity: 0.9;
+        }
+        .imagePanel__caption h5,
+        .imagePanel__caption p {
+          transform: none;
+        }
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+    @include mq-tb {
       color: $color-white;
       .imagePanel__box__overlay {
         opacity: 0.9;
