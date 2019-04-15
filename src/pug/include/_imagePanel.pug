@@ -1,7 +1,7 @@
-mixin imagePanel(title, caption, src)
+mixin imagePanel(title, caption, src, alt)
   .imagePanel
     a.imagePanel__box(href="#services")
-      img(src=src)
+      img(src=src alt=title)
       .imagePanel__box__overlay
         .imagePanel__caption
           h5= title
